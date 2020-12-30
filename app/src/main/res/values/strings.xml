@@ -1,3 +1,6 @@
 <resources>
-    <string name="app_name">Assign2_SusanMcCarthy_20080681</string>
+    <string name="app_name">Astro App</string>
+    <string name="button_addEvent">Add an Astronomical Event</string>
+    <string name="hint_astroEventTitle">Astro Event Title</string>
+    <string name="button_addAstroEvent">Add Event!</string>
 </resources>
