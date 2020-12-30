@@ -21,10 +21,15 @@ class AstroActivity : AppCompatActivity(), AnkoLogger {
 
         btnAdd.setOnClickListener() {
             astroEvent.title = astroEventTitle.text.toString()
-            if (astroEvent.title.isNotEmpty()) {
+            astroEvent.description = astroEventDescription.text.toString()
+            if (astroEvent.title.isNotEmpty() && astroEvent.description.isNotEmpty()) {
+                astroList.add(astroEvent.copy())
                 info("Add Button Pressed: $astroEvent")
+                for (i in astroList.indices) {
+                    info("Astro Event [$i]: ${this.astroList[i]}")
+                }
             } else {
-                toast ("Please enter an Event Title")
+                toast ("Please enter an Event Title and Description")
             }
         }
     }
