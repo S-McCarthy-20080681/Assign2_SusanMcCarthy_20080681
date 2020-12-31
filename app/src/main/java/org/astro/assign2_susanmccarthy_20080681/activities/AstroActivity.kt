@@ -35,11 +35,11 @@ class AstroActivity : AppCompatActivity(), AnkoLogger {
             astroEvent.title = astroEventTitle.text.toString()
             astroEvent.description = astroEventDescription.text.toString()
             if (astroEvent.title.isNotEmpty() && astroEvent.description.isNotEmpty()) {
-                app.astroList.add(astroEvent.copy())
+                app.astroList.create(astroEvent.copy())
                 info("Add Button Pressed: $astroEvent")
-                for (i in app.astroList.indices) {
-                    info("Astro Event [$i]: ${app.astroList[i]}")
-                }
+//                for (i in app.astroList.indices) {
+//                    info("Astro Event [$i]: ${app.astroList[i]}")
+//                }
                 setResult(AppCompatActivity.RESULT_OK)
                 finish()
             } else {

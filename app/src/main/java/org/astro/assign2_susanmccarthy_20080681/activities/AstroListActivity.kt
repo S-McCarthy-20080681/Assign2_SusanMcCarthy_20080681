@@ -23,7 +23,7 @@ class AstroListActivity : AppCompatActivity() {
 
         val layoutManager = LinearLayoutManager(this)
         recyclerView.layoutManager = layoutManager
-        recyclerView.adapter = AstroAdapter(app.astroList)
+        recyclerView.adapter = AstroAdapter(app.astroList.findAll())
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

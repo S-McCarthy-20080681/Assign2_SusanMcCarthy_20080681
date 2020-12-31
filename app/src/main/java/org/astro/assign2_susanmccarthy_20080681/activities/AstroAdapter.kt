@@ -8,6 +8,10 @@ import kotlinx.android.synthetic.main.card_astro.view.*
 import org.astro.assign2_susanmccarthy_20080681.R
 import org.astro.assign2_susanmccarthy_20080681.models.AstroModel
 
+interface AstroListener {
+    fun onAstroEventClick(astroEvent: AstroModel)
+}
+
 class AstroAdapter constructor(private var astroList: List<AstroModel>) :
         RecyclerView.Adapter<AstroAdapter.MainHolder>() {
 
