@@ -4,4 +4,6 @@
     <string name="hint_astroEventTitle">Astro Event Title</string>
     <string name="button_addAstroEvent">Add Event!</string>
     <string name="hint_astroEventDescription">Astro Event Description</string>
+    <string name="menu_addEvent">Add</string>
+    <string name="menu_cancelEvent">Cancel</string>
 </resources>
