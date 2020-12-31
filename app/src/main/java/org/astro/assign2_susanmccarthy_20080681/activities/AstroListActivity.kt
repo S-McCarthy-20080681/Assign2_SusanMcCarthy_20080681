@@ -7,9 +7,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_astro_list.*
 import org.astro.assign2_susanmccarthy_20080681.activities.*
 import org.astro.assign2_susanmccarthy_20080681.main.MainApp
+import org.astro.assign2_susanmccarthy_20080681.models.AstroModel
+import org.jetbrains.anko.intentFor
 import org.jetbrains.anko.startActivityForResult
 
-class AstroListActivity : AppCompatActivity() {
+class AstroListActivity : AppCompatActivity(), AstroListener {
 
     lateinit var app: MainApp
 
@@ -23,7 +25,7 @@ class AstroListActivity : AppCompatActivity() {
 
         val layoutManager = LinearLayoutManager(this)
         recyclerView.layoutManager = layoutManager
-        recyclerView.adapter = AstroAdapter(app.astroList.findAll())
+        recyclerView.adapter = AstroAdapter(app.astroList.findAll(), this)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -36,6 +38,10 @@ class AstroListActivity : AppCompatActivity() {
             R.id.item_add -> startActivityForResult<AstroActivity>(0)
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onAstroEventClick(astroEvent: AstroModel) {
+        startActivityForResult(intentFor<AstroActivity>(), 0)
     }
 
 }

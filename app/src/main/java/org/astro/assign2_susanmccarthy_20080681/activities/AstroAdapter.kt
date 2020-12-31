@@ -12,7 +12,8 @@ interface AstroListener {
     fun onAstroEventClick(astroEvent: AstroModel)
 }
 
-class AstroAdapter constructor(private var astroList: List<AstroModel>) :
+class AstroAdapter constructor(private var astroList: List<AstroModel>,
+                                private val listener: AstroListener) :
         RecyclerView.Adapter<AstroAdapter.MainHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainHolder {
@@ -27,16 +28,17 @@ class AstroAdapter constructor(private var astroList: List<AstroModel>) :
 
     override fun onBindViewHolder(holder: MainHolder, position: Int) {
         val astroEvent = astroList[holder.adapterPosition]
-        holder.bind(astroEvent)
+        holder.bind(astroEvent, listener)
     }
 
     override fun getItemCount(): Int = astroList.size
 
     class MainHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        fun bind(astroEvent: AstroModel) {
+        fun bind(astroEvent: AstroModel, listener: AstroListener) {
             itemView.astroEventTitle.text = astroEvent.title
             itemView.astroEventDescription.text = astroEvent.description
+            itemView.setOnClickListener {listener.onAstroEventClick(astroEvent)}
         }
     }
 }
