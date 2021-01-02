@@ -12,6 +12,7 @@ import kotlinx.android.synthetic.main.card_astro.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import org.astro.assign2_susanmccarthy_20080681.R
+import org.astro.assign2_susanmccarthy_20080681.helpers.showImagePicker
 import org.astro.assign2_susanmccarthy_20080681.main.MainApp
 import org.astro.assign2_susanmccarthy_20080681.models.AstroModel
 import org.jetbrains.anko.toast
@@ -19,6 +20,7 @@ import org.jetbrains.anko.toast
 class AstroActivity : AppCompatActivity(), AnkoLogger {
 
     var astroEvent = AstroModel()
+    val IMAGE_REQUEST = 1
    // val astroList = ArrayList<AstroModel>()
     lateinit var app: MainApp
 
@@ -42,7 +44,7 @@ class AstroActivity : AppCompatActivity(), AnkoLogger {
 
         info("Astro Activity started...")
 
-        btnAdd.setOnClickListener() {
+        btnAdd.setOnClickListener {
             astroEvent.title = astroEventTitle.text.toString()
             astroEvent.description = astroEventDescription.text.toString()
             if (astroEvent.title.isEmpty()) {
@@ -58,6 +60,12 @@ class AstroActivity : AppCompatActivity(), AnkoLogger {
             setResult(AppCompatActivity.RESULT_OK)
             finish()
         }
+
+        chooseImage.setOnClickListener {
+            showImagePicker(this, IMAGE_REQUEST)
+            info("Select an image...")
+        }
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
