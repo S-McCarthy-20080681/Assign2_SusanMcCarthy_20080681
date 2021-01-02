@@ -26,7 +26,17 @@ class AstroListActivity : AppCompatActivity(), AstroListener {
 
         val layoutManager = LinearLayoutManager(this)
         recyclerView.layoutManager = layoutManager
-        recyclerView.adapter = AstroAdapter(app.astroList.findAll(), this)
+        //recyclerView.adapter = AstroAdapter(app.astroList.findAll(), this)
+        loadAstroEvents()
+    }
+
+    private fun loadAstroEvents() {
+        showAstroEvents(app.astroList.findAll())
+    }
+
+    fun showAstroEvents(astroList: List<AstroModel>) {
+        recyclerView.adapter = AstroAdapter(astroList, this)
+        recyclerView.adapter?.notifyDataSetChanged()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -46,7 +56,8 @@ class AstroListActivity : AppCompatActivity(), AstroListener {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        recyclerView.adapter?.notifyDataSetChanged()
+        //recyclerView.adapter?.notifyDataSetChanged()
+        loadAstroEvents()
         super.onActivityResult(requestCode, resultCode, data)
     }
 

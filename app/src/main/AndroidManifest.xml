@@ -10,12 +10,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name="org.astro.assign2_susanmccarthy_20080681.activities.AstroActivity">
-        </activity>
-        <activity android:name="org.astro.assign2_susanmccarthy_20080681.AstroListActivity">
+
+        <activity android:name=".activities.AstroActivity"></activity>
+        <activity android:name=".AstroListActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
     </application>

@@ -18,6 +18,7 @@ import org.astro.assign2_susanmccarthy_20080681.helpers.readImageFromPath
 import org.astro.assign2_susanmccarthy_20080681.helpers.showImagePicker
 import org.astro.assign2_susanmccarthy_20080681.main.MainApp
 import org.astro.assign2_susanmccarthy_20080681.models.AstroModel
+import org.jetbrains.anko.intentFor
 import org.jetbrains.anko.toast
 
 class AstroActivity : AppCompatActivity(), AnkoLogger {
