@@ -1,11 +1,15 @@
 package org.astro.assign2_susanmccarthy_20080681.helpers
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.graphics.ImageDecoder
+import android.net.Uri
 import org.astro.assign2_susanmccarthy_20080681.R
 import java.io.IOException
+import java.lang.Exception
 
 // function to OPEN THE IMAGE GALLERY
 fun showImagePicker(parent: Activity, id: Int) {
@@ -26,6 +30,22 @@ fun readImage(activity: Activity, resultCode: Int, data: Intent?): Bitmap? {
                 ImageDecoder.createSource(activity.contentResolver, data.data!!))
         } catch (e: IOException) {
             e.printStackTrace()
+        }
+    }
+    return bitmap
+}
+
+// function to RECALL an image associated with an existing event when in Edit Mode
+fun readImageFromPath(context: Context, path: String): Bitmap? {
+    var bitmap: Bitmap? = null
+    val uri = Uri.parse(path)
+    if (uri != null) {
+        try {
+            val parcelFileDescriptor = context.contentResolver.openFileDescriptor(uri, "r")
+            val fileDescriptor = parcelFileDescriptor?.fileDescriptor
+            bitmap = BitmapFactory.decodeFileDescriptor(fileDescriptor)
+            parcelFileDescriptor?.close()
+        } catch (e: Exception) {
         }
     }
     return bitmap

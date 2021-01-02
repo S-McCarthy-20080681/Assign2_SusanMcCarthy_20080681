@@ -14,6 +14,7 @@ import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import org.astro.assign2_susanmccarthy_20080681.R
 import org.astro.assign2_susanmccarthy_20080681.helpers.readImage
+import org.astro.assign2_susanmccarthy_20080681.helpers.readImageFromPath
 import org.astro.assign2_susanmccarthy_20080681.helpers.showImagePicker
 import org.astro.assign2_susanmccarthy_20080681.main.MainApp
 import org.astro.assign2_susanmccarthy_20080681.models.AstroModel
@@ -39,6 +40,7 @@ class AstroActivity : AppCompatActivity(), AnkoLogger {
             astroEventTitle.setText(astroEvent.title)
             astroEventDescription.setText(astroEvent.description)
             btnAdd.setText(R.string.save_update)
+            astroEventImage.setImageBitmap(readImageFromPath(this, astroEvent.image))
         }
 
         toolbarAdd.title = title
