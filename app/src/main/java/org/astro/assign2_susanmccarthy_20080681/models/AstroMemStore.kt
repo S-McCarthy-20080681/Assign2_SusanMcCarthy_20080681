@@ -36,6 +36,10 @@ class AstroMemStore: AstroStore, AnkoLogger {
         }
     }
 
+    override fun delete(astroEvent: AstroModel) {
+        astroList.remove(astroEvent)
+    }
+
     fun logAll() {
         astroList.forEach{ info("${it}") }
     }

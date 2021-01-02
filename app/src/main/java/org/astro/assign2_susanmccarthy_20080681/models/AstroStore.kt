@@ -4,4 +4,5 @@ interface AstroStore {
     fun findAll(): List<AstroModel>
     fun create(astroEvent: AstroModel)
     fun update(astroEvent: AstroModel)
+    fun delete(astroEvent: AstroModel)
 }
