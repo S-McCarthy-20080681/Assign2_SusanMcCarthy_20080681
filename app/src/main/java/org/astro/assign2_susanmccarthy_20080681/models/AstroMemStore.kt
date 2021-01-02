@@ -25,12 +25,13 @@ class AstroMemStore: AstroStore, AnkoLogger {
     }
 
     // identifying the found event by its ID, which is mapped to the letter 'l', and setting the
-    // 'found' event values to be the existing event values shown to the user.
+    // 'found' event's existing values to be the event values entered by the user.
     override fun update(astroEvent: AstroModel) {
         var foundAstroEvent: AstroModel? = astroList.find { l -> l.id == astroEvent.id }
         if (foundAstroEvent != null) {
             foundAstroEvent.title = astroEvent.title
             foundAstroEvent.description = astroEvent.description
+            foundAstroEvent.image = astroEvent.image
             logAll()
         }
     }

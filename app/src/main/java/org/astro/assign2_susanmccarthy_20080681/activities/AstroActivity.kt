@@ -41,6 +41,9 @@ class AstroActivity : AppCompatActivity(), AnkoLogger {
             astroEventDescription.setText(astroEvent.description)
             btnAdd.setText(R.string.save_update)
             astroEventImage.setImageBitmap(readImageFromPath(this, astroEvent.image))
+            if (astroEvent.image != null) {
+                chooseImage.setText(R.string.change_image)
+            }
         }
 
         toolbarAdd.title = title
@@ -93,6 +96,7 @@ class AstroActivity : AppCompatActivity(), AnkoLogger {
                 if (data != null) {
                     astroEvent.image = data.getData().toString()
                     astroEventImage.setImageBitmap(readImage(this, resultCode, data))
+                    chooseImage.setText(R.string.change_image)
                 }
             }
         }
