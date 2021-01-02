@@ -27,10 +27,14 @@ class AstroActivity : AppCompatActivity(), AnkoLogger {
         setContentView(R.layout.activity_astro)
         app = application as MainApp
 
+        var edit = false
+
         if (intent.hasExtra("astroEvent_edit")) {
+            edit = true
             astroEvent = intent.extras?.getParcelable<AstroModel>("astroEvent_edit")!!
             astroEventTitle.setText(astroEvent.title)
             astroEventDescription.setText(astroEvent.description)
+            btnAdd.setText(R.string.save_update)
         }
 
         toolbarAdd.title = title
@@ -41,17 +45,18 @@ class AstroActivity : AppCompatActivity(), AnkoLogger {
         btnAdd.setOnClickListener() {
             astroEvent.title = astroEventTitle.text.toString()
             astroEvent.description = astroEventDescription.text.toString()
-            if (astroEvent.title.isNotEmpty() && astroEvent.description.isNotEmpty()) {
-                app.astroList.create(astroEvent.copy())
-                info("Add Button Pressed: $astroEvent")
-//                for (i in app.astroList.indices) {
-//                    info("Astro Event [$i]: ${app.astroList[i]}")
-//                }
-                setResult(AppCompatActivity.RESULT_OK)
-                finish()
+            if (astroEvent.title.isEmpty()) {
+                toast(R.string.enter_event_values)
             } else {
-                toast ("Please enter an Event Title and Description")
+                if (edit) {
+                    app.astroList.update(astroEvent.copy())
+                } else {
+                    app.astroList.create(astroEvent.copy())
+                }
             }
+            info("Add Button Pressed: $astroEventTitle")
+            setResult(AppCompatActivity.RESULT_OK)
+            finish()
         }
     }
 

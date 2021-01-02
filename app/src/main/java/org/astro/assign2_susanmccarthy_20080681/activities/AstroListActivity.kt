@@ -1,5 +1,6 @@
 package org.astro.assign2_susanmccarthy_20080681
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import androidx.appcompat.app.AppCompatActivity
@@ -42,6 +43,11 @@ class AstroListActivity : AppCompatActivity(), AstroListener {
 
     override fun onAstroEventClick(astroEvent: AstroModel) {
         startActivityForResult(intentFor<AstroActivity>().putExtra("astroEvent_edit", astroEvent), 0)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        recyclerView.adapter?.notifyDataSetChanged()
+        super.onActivityResult(requestCode, resultCode, data)
     }
 
 }

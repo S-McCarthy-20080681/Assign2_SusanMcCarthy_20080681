@@ -14,9 +14,9 @@ class MainApp: Application(), AnkoLogger {
     override fun onCreate() {
         super.onCreate()
         info("Astro App Started")
-        astroList.create(AstroModel("Lunar Eclipse", "About Lunar Eclipses"))
-        astroList.create(AstroModel("Ursids", "December meteor shower"))
-        astroList.create(AstroModel("The Great Conjunction", "The alignment of Jupiter and Saturn"))
+        astroList.create(AstroModel(0,"Lunar Eclipse", "About Lunar Eclipses"))
+        astroList.create(AstroModel(1,"Ursids", "December meteor shower"))
+        astroList.create(AstroModel(2,"The Great Conjunction", "The alignment of Jupiter and Saturn"))
     }
 
 }

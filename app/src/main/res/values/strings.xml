@@ -1,9 +1,11 @@
 <resources>
     <string name="app_name">Astro App</string>
-    <string name="button_addEvent">Add an Astronomical Event</string>
+<!--    <string name="button_addEvent">Add an Astronomical Event</string>-->
     <string name="hint_astroEventTitle">Astro Event Title</string>
     <string name="button_addAstroEvent">Add Event!</string>
     <string name="hint_astroEventDescription">Astro Event Description</string>
     <string name="menu_addEvent">Add</string>
     <string name="menu_cancelEvent">Cancel</string>
+    <string name="enter_event_values">Please enter Event values!</string>
+    <string name="save_update">Save Update</string>
 </resources>
