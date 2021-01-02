@@ -4,9 +4,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import kotlinx.android.synthetic.main.activity_astro.*
+import kotlinx.android.synthetic.main.activity_astro.astroEventTitle
 import kotlinx.android.synthetic.main.activity_astro.astroEventDescription
 import kotlinx.android.synthetic.main.activity_astro_list.*
+import kotlinx.android.synthetic.main.activity_astro.*
 import kotlinx.android.synthetic.main.card_astro.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
@@ -25,6 +26,12 @@ class AstroActivity : AppCompatActivity(), AnkoLogger {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_astro)
         app = application as MainApp
+
+        if (intent.hasExtra("astroEvent_edit")) {
+            astroEvent = intent.extras?.getParcelable<AstroModel>("astroEvent_edit")!!
+            astroEventTitle.setText(astroEvent.title)
+            astroEventDescription.setText(astroEvent.description)
+        }
 
         toolbarAdd.title = title
         setSupportActionBar(toolbarAdd)

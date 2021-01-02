@@ -41,7 +41,7 @@ class AstroListActivity : AppCompatActivity(), AstroListener {
     }
 
     override fun onAstroEventClick(astroEvent: AstroModel) {
-        startActivityForResult(intentFor<AstroActivity>(), 0)
+        startActivityForResult(intentFor<AstroActivity>().putExtra("astroEvent_edit", astroEvent), 0)
     }
 
 }
