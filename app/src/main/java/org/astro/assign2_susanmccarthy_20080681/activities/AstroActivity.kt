@@ -1,5 +1,6 @@
 package org.astro.assign2_susanmccarthy_20080681.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -12,6 +13,7 @@ import kotlinx.android.synthetic.main.card_astro.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import org.astro.assign2_susanmccarthy_20080681.R
+import org.astro.assign2_susanmccarthy_20080681.helpers.readImage
 import org.astro.assign2_susanmccarthy_20080681.helpers.showImagePicker
 import org.astro.assign2_susanmccarthy_20080681.main.MainApp
 import org.astro.assign2_susanmccarthy_20080681.models.AstroModel
@@ -80,6 +82,18 @@ class AstroActivity : AppCompatActivity(), AnkoLogger {
             }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        when (requestCode) {
+            IMAGE_REQUEST -> {
+                if (data != null) {
+                    astroEvent.image = data.getData().toString()
+                    astroEventImage.setImageBitmap(readImage(this, resultCode, data))
+                }
+            }
+        }
     }
 
 }
