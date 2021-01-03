@@ -13,5 +13,6 @@
     <string name="button_addImage">Add Image</string>
     <string name="select_event_image">Select Event Image:</string>
     <string name="menu_deleteEvent">Delete</string>
+<!--    <string name="hint_searchBar">Search for an Event...</string>-->
     <string name="title_activity_map">Map</string>
 </resources>

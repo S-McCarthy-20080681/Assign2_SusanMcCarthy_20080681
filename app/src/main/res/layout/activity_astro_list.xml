@@ -19,9 +19,22 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:titleTextColor="@color/colorPrimary" />
+            app:titleTextColor="@color/black" />
 
     </com.google.android.material.appbar.AppBarLayout>
+
+<!--    <com.mancj.materialsearchbar.MaterialSearchBar-->
+<!--        android:id="@+id/searchView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:mt_maxSuggestionsCount="5"-->
+<!--        app:mt_hint="@string/hint_searchBar" />-->
+
+<!--    <ListView-->
+<!--        android:id="@+id/searchResults"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent">-->
+<!--    </ListView>-->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"

@@ -2,9 +2,15 @@ package org.astro.assign2_susanmccarthy_20080681
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.*
+import android.widget.AdapterView
+import android.widget.ListView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.mancj.materialsearchbar.MaterialSearchBar
 import kotlinx.android.synthetic.main.activity_astro_list.*
 import org.astro.assign2_susanmccarthy_20080681.activities.*
 import org.astro.assign2_susanmccarthy_20080681.main.MainApp
@@ -21,12 +27,45 @@ class AstroListActivity : AppCompatActivity(), AstroListener {
         setContentView(R.layout.activity_astro_list)
         app = application as MainApp
 
+//        val searchResult = findViewById<ListView>(R.id.searchResults)
+//        val searchBar = findViewById<MaterialSearchBar>(R.id.searchView)
+
         toolbar.title = title
         setSupportActionBar(toolbar)
 
         val layoutManager = LinearLayoutManager(this)
         recyclerView.layoutManager = layoutManager
         loadAstroEvents()
+
+        //val searchArray = ArrayList<AstroModel>()
+        //searchResult.searchAdapter
+
+//        searchBar.addTextChangeListener(object : TextWatcher {
+//            override fun beforeTextChanged(charSequence: CharSequence, start: Int, count: Int, after: Int) {
+//                TODO("Not yet implemented")
+//            }
+//
+//            override fun onTextChanged(charSequence: CharSequence, start: Int, before: Int, count: Int) {
+//                //searchAdapter.filter(charSequence)
+//                searchResult.textFilter.filter { true }
+//            }
+//
+//            override fun afterTextChanged(s: Editable?) {
+//                TODO("Not yet implemented")
+//            }
+//        })
+
+//        searchResult.setOnItemClickListener(object : AdapterView.OnItemClickListener {
+//            override fun onItemClick(
+//                parent: AdapterView<*>?,
+//                view: View?,
+//                position: Int,
+//                id: Long
+//            ) {
+//                Toast.makeText(this@AstroListActivity, searchAdapter.getItem)
+//            }
+//        })
+
     }
 
     // return all events currently in the app.
