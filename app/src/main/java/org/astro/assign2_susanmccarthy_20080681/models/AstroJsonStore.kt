@@ -19,6 +19,8 @@ fun generateRandomId(): Long {
     return Random().nextLong()
 }
 
+// USED FOR PERSISTENT STORAGE //
+
 class AstroJsonStore: AstroStore, AnkoLogger {
 
     val context: Context

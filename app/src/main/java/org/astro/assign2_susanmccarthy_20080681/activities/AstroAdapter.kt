@@ -4,13 +4,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.activity_astro.view.*
 import kotlinx.android.synthetic.main.card_astro.view.*
 import kotlinx.android.synthetic.main.card_astro.view.astroEventDescription
 import kotlinx.android.synthetic.main.card_astro.view.astroEventTitle
 import kotlinx.android.synthetic.main.card_astro.view.astroEventTime
 import kotlinx.android.synthetic.main.card_astro.view.astroEventNext
-import org.astro.assign2_susanmccarthy_20080681.R
 import org.astro.assign2_susanmccarthy_20080681.helpers.readImageFromPath
 import org.astro.assign2_susanmccarthy_20080681.models.AstroModel
 
@@ -41,7 +39,8 @@ class AstroAdapter constructor(private var astroList: List<AstroModel>,
 
     class MainHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        // display the Event title, Event values and Event Image in the List
+        // display the Event title, Event values and Event Image in the Card View and expanded
+        // Event View.
         fun bind(astroEvent: AstroModel, listener: AstroListener) {
             itemView.astroEventTitle.text = astroEvent.title
             itemView.astroEventDescription.text = astroEvent.description

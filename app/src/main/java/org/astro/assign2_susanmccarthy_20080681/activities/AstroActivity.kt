@@ -9,9 +9,7 @@ import kotlinx.android.synthetic.main.activity_astro.astroEventTitle
 import kotlinx.android.synthetic.main.activity_astro.astroEventDescription
 import kotlinx.android.synthetic.main.activity_astro.astroEventTime
 import kotlinx.android.synthetic.main.activity_astro.astroEventNext
-import kotlinx.android.synthetic.main.activity_astro_list.*
 import kotlinx.android.synthetic.main.activity_astro.*
-import kotlinx.android.synthetic.main.card_astro.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import org.astro.assign2_susanmccarthy_20080681.R
@@ -20,17 +18,17 @@ import org.astro.assign2_susanmccarthy_20080681.helpers.readImageFromPath
 import org.astro.assign2_susanmccarthy_20080681.helpers.showImagePicker
 import org.astro.assign2_susanmccarthy_20080681.main.MainApp
 import org.astro.assign2_susanmccarthy_20080681.models.AstroModel
-import org.jetbrains.anko.intentFor
 import org.jetbrains.anko.toast
-import java.util.*
 
 class AstroActivity : AppCompatActivity(), AnkoLogger {
 
     var astroEvent = AstroModel()
     val IMAGE_REQUEST = 1
-   // val astroList = ArrayList<AstroModel>()
+
     lateinit var app: MainApp
 
+    // the app is called and run from the MainApp class, and all app functions are managed
+    // under this function.
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_astro)
@@ -38,6 +36,8 @@ class AstroActivity : AppCompatActivity(), AnkoLogger {
 
         var edit = false
 
+        // if statement to handle the Update feature; if an Event is clicked on, its values
+        // are filled in so a user can change or keep what they want.
         if (intent.hasExtra("astroEvent_edit")) {
             edit = true
             astroEvent = intent.extras?.getParcelable<AstroModel>("astroEvent_edit")!!
@@ -57,6 +57,9 @@ class AstroActivity : AppCompatActivity(), AnkoLogger {
 
         info("Astro Activity started...")
 
+        // function to write user input to each value when Add Event button is pushed.
+        // Validation in place to stop the function if user input is not there, and to
+        // call either the Update or Create features accordingly.
         btnAdd.setOnClickListener {
             astroEvent.title = astroEventTitle.text.toString()
             astroEvent.description = astroEventDescription.text.toString()
@@ -76,6 +79,8 @@ class AstroActivity : AppCompatActivity(), AnkoLogger {
             finish()
         }
 
+        // call the showImagePicker function (which allows a user to select an image from their
+        // gallery) when the Choose Image button is pressed.
         chooseImage.setOnClickListener {
             showImagePicker(this, IMAGE_REQUEST)
             info("Select an image...")
@@ -83,11 +88,14 @@ class AstroActivity : AppCompatActivity(), AnkoLogger {
 
     }
 
+    // function to call the buttons along the action bar at this point, i.e. Delete and Cancel.
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_event, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
+    // function to call the DELETE feature when the Delete button is pushed, and to
+    // return to the Main Page when the Cancel button is pushed.
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.item_delete -> {
@@ -101,6 +109,8 @@ class AstroActivity : AppCompatActivity(), AnkoLogger {
         return super.onOptionsItemSelected(item)
     }
 
+    // function to call the current image saved for an Event, and offer the user a chance
+    // to change it.
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         when (requestCode) {

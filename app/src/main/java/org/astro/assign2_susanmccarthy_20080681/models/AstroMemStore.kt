@@ -9,6 +9,8 @@ internal fun getId(): Long {
     return lastId++
 }
 
+// USED FOR TEMPORARY STORAGE //
+
 class AstroMemStore: AstroStore, AnkoLogger {
 
     val astroList = ArrayList<AstroModel>()

@@ -26,24 +26,28 @@ class AstroListActivity : AppCompatActivity(), AstroListener {
 
         val layoutManager = LinearLayoutManager(this)
         recyclerView.layoutManager = layoutManager
-        //recyclerView.adapter = AstroAdapter(app.astroList.findAll(), this)
         loadAstroEvents()
     }
 
+    // return all events currently in the app.
     private fun loadAstroEvents() {
         showAstroEvents(app.astroList.findAll())
     }
 
+    // function to notify the recycler view that some data has changed and to refresh itself
+    // to reflect this.
     fun showAstroEvents(astroList: List<AstroModel>) {
         recyclerView.adapter = AstroAdapter(astroList, this)
         recyclerView.adapter?.notifyDataSetChanged()
     }
 
+    // function to call the buttons along the action bar at this point, i.e. the 'Add' icon.
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
+    // function to tell the app to run the Create View when the 'Add' icon is pressed.
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.item_add -> startActivityForResult<AstroActivity>(0)
@@ -51,12 +55,13 @@ class AstroListActivity : AppCompatActivity(), AstroListener {
         return super.onOptionsItemSelected(item)
     }
 
+    // function to tell the app to open its Edit View when an individual Event is clicked on.
     override fun onAstroEventClick(astroEvent: AstroModel) {
         startActivityForResult(intentFor<AstroActivity>().putExtra("astroEvent_edit", astroEvent), 0)
     }
 
+    // all Events currently saved in the app are displayed to the user.
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        //recyclerView.adapter?.notifyDataSetChanged()
         loadAstroEvents()
         super.onActivityResult(requestCode, resultCode, data)
     }
