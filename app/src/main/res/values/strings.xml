@@ -4,6 +4,8 @@
     <string name="hint_astroEventTitle">Astro Event Title</string>
     <string name="button_addAstroEvent">Add Event!</string>
     <string name="hint_astroEventDescription">Astro Event Description</string>
+    <string name="hint_astroEventTime">Closest Occurrence (dd/mm/yyyy)</string>
+    <string name="hint_astroEventNext">Next Occurrence (dd/mm/yyyy)</string>
     <string name="menu_addEvent">Add</string>
     <string name="menu_cancelEvent">Cancel</string>
     <string name="enter_event_values">Please enter Event values!</string>

@@ -26,7 +26,7 @@
                 android:id="@+id/toolbarAdd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:titleTextColor="@color/colorPrimary" />
+                app:titleTextColor="@color/black" />
         </com.google.android.material.appbar.AppBarLayout>
 
         <ScrollView
@@ -51,7 +51,7 @@
                     android:maxLength="25"
                     android:maxLines="1"
                     android:padding="8dp"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:textColor="@color/white"
                     android:textSize="14sp" />
 
                 <EditText
@@ -59,12 +59,41 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
+                    android:autofillHints=""
                     android:hint="@string/hint_astroEventDescription"
                     android:inputType="text"
                     android:maxLength="25"
                     android:maxLines="1"
                     android:padding="8dp"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/astroEventTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:autofillHints=""
+                    android:hint="@string/hint_astroEventTime"
+                    android:inputType="text"
+                    android:maxLength="25"
+                    android:maxLines="1"
+                    android:padding="8dp"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/astroEventNext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:autofillHints=""
+                    android:hint="@string/hint_astroEventNext"
+                    android:inputType="text"
+                    android:maxLength="25"
+                    android:maxLines="1"
+                    android:padding="8dp"
+                    android:textColor="@color/white"
                     android:textSize="14sp" />
 
                 <Button
@@ -76,7 +105,7 @@
                     android:paddingBottom="8dp"
                     android:paddingTop="8dp"
                     android:text="@string/button_addImage"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="@color/black"
                     android:textSize="16sp" />
 
                 <ImageView
@@ -95,109 +124,10 @@
                     android:paddingBottom="8dp"
                     android:stateListAnimator="@null"
                     android:text="@string/button_addAstroEvent"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="@color/black"
                     android:textSize="16sp" />
             </LinearLayout>
         </ScrollView>
 
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-<!--<?xml version="1.0" encoding="utf-8"?>-->
-<!--<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
-<!--    xmlns:tools="http://schemas.android.com/tools"-->
-<!--    android:layout_width="match_parent"-->
-<!--    android:layout_height="match_parent"-->
-<!--    tools:context=".activities.AstroActivity">-->
-
-<!--    <RelativeLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent">-->
-
-<!--        <com.google.android.material.appbar.AppBarLayout-->
-<!--            android:id="@+id/appBarLayout"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:background="@color/colorAccent"-->
-<!--            android:fitsSystemWindows="true"-->
-<!--            app:elevation="0dip"-->
-<!--            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">-->
-
-<!--            <androidx.appcompat.widget.Toolbar-->
-<!--                android:id="@+id/toolbarAdd"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                app:titleTextColor="@color/colorPrimary" />-->
-
-<!--        </com.google.android.material.appbar.AppBarLayout>-->
-
-<!--        <ScrollView-->
-<!--            android:id="@id/toolbarAdd"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:layout_below="@id/appBarLayout"-->
-<!--            android:fillViewport="true">-->
-
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:orientation="vertical">-->
-
-<!--                <EditText-->
-<!--                    android:id="@+id/astroEventTitle"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="45dp"-->
-<!--                    android:layout_margin="8dp"-->
-<!--                    android:autofillHints=""-->
-<!--                    android:hint="@string/hint_astroEventTitle"-->
-<!--                    android:inputType="text"-->
-<!--                    android:maxLength="25"-->
-<!--                    android:maxLines="1"-->
-<!--                    android:padding="8dp"-->
-<!--                    android:textColor="@color/colorPrimaryDark"-->
-<!--                    android:textSize="14sp" />-->
-
-<!--                <EditText-->
-<!--                    android:id="@+id/astroEventDescription"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_margin="8dp"-->
-<!--                    android:hint="@string/hint_astroEventDescription"-->
-<!--                    android:inputType="text"-->
-<!--                    android:maxLength="25"-->
-<!--                    android:maxLines="1"-->
-<!--                    android:padding="8dp"-->
-<!--                    android:textColor="@color/colorPrimaryDark"-->
-<!--                    android:textSize="14sp" />-->
-
-<!--                <Button-->
-<!--                    android:id="@+id/btnAdd"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_margin="16dp"-->
-<!--                    android:background="@color/colorAccent"-->
-<!--                    android:paddingTop="8dp"-->
-<!--                    android:paddingBottom="8dp"-->
-<!--                    android:stateListAnimator="@null"-->
-<!--                    android:text="@string/button_addAstroEvent"-->
-<!--                    android:textColor="@color/colorPrimary"-->
-<!--                    android:textSize="16sp" />-->
-
-<!--            </LinearLayout>-->
-<!--        </ScrollView>-->
-
-<!--    </RelativeLayout>-->
-
-<!--&lt;!&ndash;    <TextView&ndash;&gt;-->
-<!--&lt;!&ndash;        android:layout_width="wrap_content"&ndash;&gt;-->
-<!--&lt;!&ndash;        android:layout_height="wrap_content"&ndash;&gt;-->
-<!--&lt;!&ndash;        android:text="Hello World!"&ndash;&gt;-->
-<!--&lt;!&ndash;        app:layout_constraintBottom_toBottomOf="parent"&ndash;&gt;-->
-<!--&lt;!&ndash;        app:layout_constraintLeft_toLeftOf="parent"&ndash;&gt;-->
-<!--&lt;!&ndash;        app:layout_constraintRight_toRightOf="parent"&ndash;&gt;-->
-<!--&lt;!&ndash;        app:layout_constraintTop_toTopOf="parent" />&ndash;&gt;-->
-
-<!--</androidx.constraintlayout.widget.ConstraintLayout>-->

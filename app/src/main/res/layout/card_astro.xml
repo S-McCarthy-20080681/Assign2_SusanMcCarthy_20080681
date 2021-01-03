@@ -15,7 +15,7 @@
             android:id="@+id/imageIcon"
             android:layout_width="64dp"
             android:layout_height="64dp"
-            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true"
             android:layout_marginEnd="16dp"
             android:contentDescription="@string/change_image" />
@@ -32,6 +32,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/astroEventTitle" />
+
+        <TextView
+            android:id="@+id/astroEventTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/astroEventDescription" />
+
+        <TextView
+            android:id="@+id/astroEventNext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/astroEventTime" />
 
     </RelativeLayout>
 

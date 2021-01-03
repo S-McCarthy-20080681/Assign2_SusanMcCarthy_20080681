@@ -51,6 +51,8 @@ class AstroJsonStore: AstroStore, AnkoLogger {
         if (foundAstroEvent != null) {
             foundAstroEvent.title = astroEvent.title
             foundAstroEvent.description = astroEvent.description
+            foundAstroEvent.closestTime = astroEvent.closestTime
+            foundAstroEvent.nextTime = astroEvent.nextTime
             foundAstroEvent.image = astroEvent.image
         }
         serialize()
