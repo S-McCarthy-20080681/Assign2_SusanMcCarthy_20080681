@@ -83,6 +83,10 @@ class AstroActivity : AppCompatActivity(), AnkoLogger {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
+            R.id.item_delete -> {
+                app.astroList.delete(astroEvent)
+                finish()
+        }
             R.id.item_cancel -> {
                 finish()
             }
